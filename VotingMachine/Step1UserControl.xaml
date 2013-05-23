@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="VotingMachine.Step1UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <RadialGradientBrush x:Key="MenuBg" ColorInterpolationMode="ScRgbLinearInterpolation"  GradientOrigin="0 1" RadiusX="6">
+            <GradientStop Color="DarkSlateGray" Offset="0.18"/>
+            <GradientStop Color="Linen" Offset="1"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="BorderBrush" ColorInterpolationMode="SRgbLinearInterpolation"  StartPoint="0 1">
+            <GradientStop Color="DarkSlateGray" Offset="0.2"/>
+            <GradientStop Color="DarkSlateGray" Offset="0.8"/>
+        </LinearGradientBrush>
+
+        <Style TargetType="{x:Type Border}" x:Key="MenuBorder">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ResourceKey=BorderBrush}"/>
+
+            
+            <Setter Property="CornerRadius" Value="6, 6 ,6 6"/>
+
+        </Style>
+     
+    </UserControl.Resources>
+    <StackPanel Margin="10,10,10,10" Name="mainStackPanel">
+        <TextBlock FontSize="15" HorizontalAlignment="Right" Text="[Aşama 1]"></TextBlock>
+        
+        <Border Style="{DynamicResource ResourceKey=MenuBorder}">
+            <StackPanel Margin="20 20 20 20">
+                <TextBlock FontSize="36" Text="Elektronik Seçim Sistemi'ne Hoşgeldiniz" Name="message"></TextBlock>
+                <TextBlock></TextBlock>
+                <TextBox Height="28" Name="trigger" IsEnabled="False" Visibility="Hidden" TextChanged="trigger_TextChanged" />
+                <TextBlock FontSize="24" Text="Aktif Seçim: " Name="electionName"></TextBlock>
+                <TextBlock FontSize="24"  Text="Başlama Tarihi: " Name="startDate"></TextBlock>
+                <TextBlock FontSize="24" Text="Bitiş Tarihi: " Name="finishDate"></TextBlock>
+                <TextBlock></TextBlock>
+                <TextBlock FontSize="24" Text="Kalan Zaman: " Name="timeLeft" />
+                <TextBlock FontSize="24" Text="Oy kullanma işlemi 4 aşamadan oluşmaktadır:"></TextBlock>
+                <TextBlock FontSize="20" Text="1.Aşama: Kimlik Doğrulama"></TextBlock>
+                <TextBlock FontSize="20" Text="2.Aşama: Oy Kullanma"></TextBlock>
+                <TextBlock FontSize="20" Text="3.Aşama: Doğrulama"></TextBlock>
+                <TextBlock FontSize="20" Text="4.Aşama: İşlem Sonucu"></TextBlock>
+                <TextBlock></TextBlock>
+                <TextBlock FontSize="24" Text="Başlamak için lütfen parmağınızı parmak izi okuma cihazına dokundurunuz."></TextBlock>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

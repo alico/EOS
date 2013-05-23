@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.222:5778/InternetService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EOS.InternetService" />
+  <xs:element name="SetVote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="identityNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionId" type="xs:int" />
+        <xs:element minOccurs="0" name="RegionId" type="xs:int" />
+        <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="timeStampt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashingData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVoteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetVoteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVoter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="biometricId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="timeStampt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashingData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVoterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EOS.InternetService" minOccurs="0" name="GetVoterResult" nillable="true" type="q1:VoterResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="electionId" type="xs:int" />
+        <xs:element minOccurs="0" name="identityNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="timeStampt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashingData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EOS.InternetService" minOccurs="0" name="GetCandidatesResult" nillable="true" type="q2:CandidateResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetFingerPrint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdentityNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BiometricId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetFingerPrintResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetFingerPrintResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

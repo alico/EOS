@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="014e5035-cd6d-4512-abda-90a3300a8287" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.222:5778/InternetService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InternetService1.wsdl" MetadataType="Wsdl" ID="4561834a-7601-4d8d-a053-85670f84df72" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService" />
+    <MetadataFile FileName="InternetService.xsd" MetadataType="Schema" ID="cad92431-1f97-4a21-b34c-4363bc312f32" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd3" />
+    <MetadataFile FileName="InternetService3.xsd" MetadataType="Schema" ID="e8f3a50c-1c04-4cd8-b6f4-279eacdde8ae" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd2" />
+    <MetadataFile FileName="InternetService31.xsd" MetadataType="Schema" ID="7c01d5f6-83c8-421e-8dd4-7cdb5133d18e" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd1" />
+    <MetadataFile FileName="InternetService32.xsd" MetadataType="Schema" ID="1ba9f6e8-5c28-4760-a941-cccc3806db6c" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

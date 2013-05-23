@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Vote">
+  <DataContextMoniker Name="/VoteDataContext" />
+  <nestedChildShapes>
+    <classShape Id="705e38de-829f-495b-9494-66ac946dfece" absoluteBounds="0.5, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/VoteDataContext/VElectionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="610e294d-4139-4a0e-8a9d-d229bf2db792" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="096d5429-17db-4a94-9917-7164be316a2f" absoluteBounds="0.875, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VoteDataContext/District" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f1660df-61c9-4002-bc4e-9c7f6246f883" absoluteBounds="0.89, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e15a9505-f451-4472-a25e-81f5fbfd6121" absoluteBounds="3.625, 0.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/VoteDataContext/Vote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="244adca9-4c6e-4918-8881-7abf815d3667" absoluteBounds="3.6399999999999997, 1.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 4.53929768880208); (4.625 : 4.53929768880208); (4.625 : 3.4151025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VoteDataContext/District/District_Vote" />
+      <nodes>
+        <classShapeMoniker Id="096d5429-17db-4a94-9917-7164be316a2f" />
+        <classShapeMoniker Id="e15a9505-f451-4472-a25e-81f5fbfd6121" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

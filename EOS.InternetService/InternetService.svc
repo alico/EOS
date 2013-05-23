@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="EOS.InternetService.InternetService" CodeBehind="InternetService.svc.cs" %>

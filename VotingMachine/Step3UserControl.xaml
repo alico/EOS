@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="VotingMachine.Step3UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="879" d:DesignHeight="477">
+    <UserControl.Resources>
+        <RadialGradientBrush x:Key="MenuBg" ColorInterpolationMode="ScRgbLinearInterpolation"  GradientOrigin="0 1" RadiusX="6">
+            <GradientStop Color="DarkSlateGray" Offset="0.18"/>
+            <GradientStop Color="Linen" Offset="1"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="BorderBrush" ColorInterpolationMode="SRgbLinearInterpolation"  StartPoint="0 1">
+            <GradientStop Color="DarkSlateGray" Offset="0.2"/>
+            <GradientStop Color="DarkSlateGray" Offset="0.8"/>
+        </LinearGradientBrush>
+
+        <Style TargetType="{x:Type Border}" x:Key="MenuBorder">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ResourceKey=BorderBrush}"/>
+
+
+            <Setter Property="CornerRadius" Value="6, 6 ,6 6"/>
+
+        </Style>
+
+    </UserControl.Resources>
+    <StackPanel Margin="10,10,10,10" Name="mainStackPanel">
+        <TextBlock FontSize="15" HorizontalAlignment="Right" Text="[Aşama 3]"></TextBlock>
+
+        <Border Style="{DynamicResource ResourceKey=MenuBorder}">
+            <StackPanel Name="ParentStack" Orientation="Horizontal" Margin="20 20 20 20">
+                <StackPanel Name="ChildStack" Margin="20 20 20 20">
+                    
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Name="ChildStack2" Margin="20 20 20 20">
+                    <TextBlock FontSize="24" Text="Oy vermek istediğiniz partinin simgesi ykarıda görüntülenmektedir."></TextBlock>
+                    <TextBlock FontSize="24" Text="Onaylamak için sol taraftaki yeşil ONAYLA düğmesine basınız."></TextBlock>
+                    <TextBlock FontSize="24" Text="Bir önceki menüyedönmek için sağ taraftaki kırmızı GERİ düğmesine basınız."></TextBlock>
+                    <StackPanel Orientation="Horizontal" Name="ChildStack3" Margin="20 20 20 20">
+
+                        <Button Background="YellowGreen" FontSize="24" Width="100" Margin="100 20 320 20" Content="Onayla" Name="acceptButton" Click="acceptButton_Click" />
+                        <Button Background="Red" FontSize="24" Width="100" Content="Geri" Margin="20 20 20 20" Name="declineButton" Click="declineButton_Click" />
+                    </StackPanel>
+                </StackPanel>
+                
+               
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

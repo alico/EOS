@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MerkezService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.222:5779/MerkezService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.222:5779/MerkezService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.222:5779/MerkezService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EOS.MerkezService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMerkezService_GetServerDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerDate" />
+  </wsdl:message>
+  <wsdl:message name="IMerkezService_GetServerDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMerkezService_SetVote_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVote" />
+  </wsdl:message>
+  <wsdl:message name="IMerkezService_SetVote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMerkezService_GetActiveElection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveElection" />
+  </wsdl:message>
+  <wsdl:message name="IMerkezService_GetActiveElection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveElectionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMerkezService">
+    <wsdl:operation name="GetServerDate">
+      <wsdl:input wsaw:Action="http://192.168.1.222:5779/MerkezService/GetServerDate" message="tns:IMerkezService_GetServerDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMerkezService/GetServerDateResponse" message="tns:IMerkezService_GetServerDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVote">
+      <wsdl:input wsaw:Action="http://192.168.1.222:5779/MerkezService/SetVote" message="tns:IMerkezService_SetVote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMerkezService/SetVoteResponse" message="tns:IMerkezService_SetVote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveElection">
+      <wsdl:input wsaw:Action="http://192.168.1.222:5779/MerkezService/GetActiveElection" message="tns:IMerkezService_GetActiveElection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMerkezService/GetActiveElectionResponse" message="tns:IMerkezService_GetActiveElection_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetServerDateEp" type="tns:IMerkezService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServerDate">
+      <soap:operation soapAction="http://192.168.1.222:5779/MerkezService/GetServerDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVote">
+      <soap:operation soapAction="http://192.168.1.222:5779/MerkezService/SetVote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveElection">
+      <soap:operation soapAction="http://192.168.1.222:5779/MerkezService/GetActiveElection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MerkezService">
+    <wsdl:port name="GetServerDateEp" binding="tns:GetServerDateEp">
+      <soap:address location="http://192.168.1.222:5779/MerkezService/GetServerDate" />
+    </wsdl:port>
+    <wsdl:port name="SetVoteEp" binding="tns:GetServerDateEp">
+      <soap:address location="http://192.168.1.222:5779/MerkezService/SetVote" />
+    </wsdl:port>
+    <wsdl:port name="GetActiveElectionEp" binding="tns:GetServerDateEp">
+      <soap:address location="http://192.168.1.222:5779/MerkezService/GetActiveElection" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Citizen">
+  <DataContextMoniker Name="/CitizenDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7840c6db-5427-4bc8-859a-60390be2cac9" absoluteBounds="1.625, 1.25, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/CitizenDataContext/Citizen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d3661b5-fc69-4443-ae0a-aab131818ede" absoluteBounds="1.6400000000000001, 1.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="509501bc-f690-4369-845f-391f66c70622" absoluteBounds="3.75, 0.5, 2, 4.2708154296875">
+      <DataClassMoniker Name="/CitizenDataContext/Voter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40e3a2dc-b61d-4ed1-a82e-85331c4f76cc" absoluteBounds="3.7649999999999997, 0.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

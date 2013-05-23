@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EOS.InternetService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EOS.InternetService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="VoterResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:Voter" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="tns:Error" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoterResponse" nillable="true" type="tns:VoterResponse" />
+  <xs:complexType name="Voter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BiometricPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedFrom" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Handicapped" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdentityNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VoterStatus" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Voter" nillable="true" type="tns:Voter" />
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Error" nillable="true" type="tns:Error" />
+  <xs:complexType name="CandidateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Candidates" nillable="true" type="tns:ArrayOfVVoterMachineCandidate" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="tns:Error" />
+      <xs:element minOccurs="0" name="Parties" nillable="true" type="tns:ArrayOfVVoterMachineParty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CandidateResponse" nillable="true" type="tns:CandidateResponse" />
+  <xs:complexType name="ArrayOfVVoterMachineCandidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VVoterMachineCandidate" nillable="true" type="tns:VVoterMachineCandidate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVVoterMachineCandidate" nillable="true" type="tns:ArrayOfVVoterMachineCandidate" />
+  <xs:complexType name="VVoterMachineCandidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ElectionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PartyId" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionId" type="xs:int" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VVoterMachineCandidate" nillable="true" type="tns:VVoterMachineCandidate" />
+  <xs:complexType name="ArrayOfVVoterMachineParty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VVoterMachineParty" nillable="true" type="tns:VVoterMachineParty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVVoterMachineParty" nillable="true" type="tns:ArrayOfVVoterMachineParty" />
+  <xs:complexType name="VVoterMachineParty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyAcr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyId" type="xs:int" />
+      <xs:element minOccurs="0" name="PartyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VVoterMachineParty" nillable="true" type="tns:VVoterMachineParty" />
+</xs:schema>

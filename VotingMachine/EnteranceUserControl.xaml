@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="VotingMachine.EnteranceUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignHeight="410" d:DesignWidth="723">
+    <UserControl.Resources>
+        <RadialGradientBrush x:Key="MenuBg" ColorInterpolationMode="ScRgbLinearInterpolation"  GradientOrigin="0 1" RadiusX="6">
+            <GradientStop Color="DarkSlateGray" Offset="0.18"/>
+            <GradientStop Color="Linen" Offset="1"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="BorderBrush" ColorInterpolationMode="SRgbLinearInterpolation"  StartPoint="0 1">
+            <GradientStop Color="DarkSlateGray" Offset="0.2"/>
+            <GradientStop Color="DarkSlateGray" Offset="0.8"/>
+        </LinearGradientBrush>
+
+        <Style TargetType="{x:Type Border}" x:Key="MenuBorder">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ResourceKey=BorderBrush}"/>
+
+
+            <Setter Property="CornerRadius" Value="6, 6 ,6 6"/>
+
+        </Style>
+
+    </UserControl.Resources>
+    <StackPanel Margin="10,10,10,10" Name="mainStackPanel">
+        <TextBlock FontSize="15" HorizontalAlignment="Right" Text="[Açılış Sayfası]"></TextBlock>
+
+        <Border Style="{DynamicResource ResourceKey=MenuBorder}">
+            <StackPanel Margin="20 20 20 20">
+                <TextBlock FontSize="36" Text="Elektronik Seçim Sistemi"></TextBlock>
+                <TextBlock></TextBlock>
+                <TextBlock FontSize="24" Text="En Yakın Seçim: " Name="electionName"></TextBlock>
+                <TextBlock FontSize="24"  Text="Başlama Tarihi: " Name="startDate"></TextBlock>
+                <TextBlock FontSize="24" Text="Bitiş Tarihi: " Name="endDate"></TextBlock>
+                <TextBlock FontSize="24" Text="Kalan Zaman: " Name="left"></TextBlock>
+                <TextBlock></TextBlock>
+                <TextBlock FontSize="24" Text="Seçimin Başaltılması Bekleniyor" Name="description"></TextBlock>
+                <TextBlock></TextBlock>
+                <TextBox Text="" Visibility="Hidden"  Height="28" Name="trigger" TextChanged="trigger_TextChanged" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

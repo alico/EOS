@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b655f8c1-3ae9-4e6f-94bd-99acad3051da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.222:5779/MerkezService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MerkezService31.xsd" MetadataType="Schema" ID="4b515e87-c245-4f60-b793-658b3797e233" SourceId="1" SourceUrl="http://192.168.1.222:5779/MerkezService?xsd=xsd0" />
+    <MetadataFile FileName="MerkezService1.wsdl" MetadataType="Wsdl" ID="e687ed70-f643-4391-a0b5-6ce804fea980" SourceId="1" SourceUrl="http://192.168.1.222:5779/MerkezService" />
+    <MetadataFile FileName="MerkezService32.xsd" MetadataType="Schema" ID="cd221bec-6526-471a-a57a-a6c73b489229" SourceId="1" SourceUrl="http://192.168.1.222:5779/MerkezService?xsd=xsd1" />
+    <MetadataFile FileName="MerkezService3.xsd" MetadataType="Schema" ID="ecefae4c-379d-47d2-90d5-80006d3648ad" SourceId="1" SourceUrl="http://192.168.1.222:5779/MerkezService?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="92480e3d-493e-4b24-9141-c63eedc09e71" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.222:9999/TCNufusMudurlugu" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TCNufusMudurlugu1.xsd" MetadataType="Schema" ID="ccbeb950-fbd2-461e-8c2e-aeca100ab754" SourceId="1" SourceUrl="http://192.168.1.222:9999/TCNufusMudurlugu?xsd=xsd1" />
+    <MetadataFile FileName="TCNufusMudurlugu2.xsd" MetadataType="Schema" ID="3d6eff03-dbfa-4e61-9f22-a6534857c38e" SourceId="1" SourceUrl="http://192.168.1.222:9999/TCNufusMudurlugu?xsd=xsd2" />
+    <MetadataFile FileName="TCNufusMudurlugu.xsd" MetadataType="Schema" ID="856b39ed-26be-4271-8175-4acac57560e1" SourceId="1" SourceUrl="http://192.168.1.222:9999/TCNufusMudurlugu?xsd=xsd0" />
+    <MetadataFile FileName="srvPopulation.wsdl" MetadataType="Wsdl" ID="2a2f8c56-57f3-4618-b354-fe0b77d26b4d" SourceId="1" SourceUrl="http://192.168.1.222:9999/TCNufusMudurlugu" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
