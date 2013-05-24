@@ -133,6 +133,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            clearLog();
             button1.Enabled = false;
             getBiometricId();
         }

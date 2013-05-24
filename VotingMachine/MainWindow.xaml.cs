@@ -20,34 +20,7 @@ namespace VotingMachine
             InitializeComponent();
             var uc = new EnteranceUserControl(this);
             MainStackPanel.Children.Add(uc);
-            //listenFingerPrintDevice();
-            //
-       
-            //StackPanel panel = new StackPanel();
-            //panel.Orientation= Orientation.Horizontal;
-            //var candidates = new List<string>();
-            //candidates.Add("1-Ali KIZILDAĞ");
-            //candidates.Add("2-Ali KIZILDAĞ");
-            //candidates.Add("10-Ali KIZILDAĞ");
-            //candidates.Add("11-Ali KIZILDAĞ");
-            //panel.Margin = new Thickness(10, 10, 0, 0);
-            //for (int i = 1; i < 20; i++)
-            //{
-            //    var party = new PartyUserControl("1", "Milliyetçi Hareket Partisi", "http://nevsehirmhp.com/haber_resim/Parti_Logosu.jpg","MHP","Devlet BAHÇELİ",candidates);
-            //    panel.Children.Add(party);
-            //    var tab = new TextBlock();
-            //    panel.Children.Add(tab);
-            //    tab.Width = 5;
-            //    if (i%8 == 0)
-            //    {
-            //        MainStackPanel.Children.Add(panel);
-            //        panel = new StackPanel();
-            //        panel.Orientation = Orientation.Horizontal;
-            //        panel.Margin= new Thickness(10,20,0,0);
-            //    }
-
-
-            //}
+          
         }
 
         private void StackPanelMouseDown(object sender, MouseButtonEventArgs e)
@@ -69,7 +42,17 @@ namespace VotingMachine
         {       
             MainStackPanel.Children.Clear();
             switch (stepId)
-            {    
+            {
+                case 0:
+                    {
+                        Globals.CurrentElection = null;
+                        Globals.CurrentParty = null;
+                        Globals.CurrentVoter = null;
+                        Globals.CurrenttrackingCode = null;
+                        var uc = new EnteranceUserControl(this);
+                        MainStackPanel.Children.Add(uc);
+                        break;
+                    }
                 case 1 :
                     {
                         Globals.CurrenttrackingCode = null;

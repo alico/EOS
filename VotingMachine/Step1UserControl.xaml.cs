@@ -33,8 +33,6 @@ namespace VotingMachine
             m_mainWindow = window;
             startApplication();
             prepareForm();
-           
-
         }
 
         private void listenFingerPrintDevice()
@@ -192,7 +190,14 @@ namespace VotingMachine
         {
             stopFingerPrintService();
             m_Timer.Stop();
-            m_mainWindow.changeStep(2);
+            if (trigger.Text == "0")
+            {
+                m_mainWindow.changeStep(0);
+            }
+            else{
+                m_mainWindow.changeStep(2);
+            
+            }
         }
 
         private void prepareForm()
@@ -215,13 +220,20 @@ namespace VotingMachine
             if (time <= 0)
             {
                 Globals.IsElectionStarted = false;
+                trigger.Dispatcher.BeginInvoke(new Action(delegate()
+                {
+                    trigger.Text = "0";
+                }));
             }
-            timeLeft.Dispatcher.BeginInvoke(new Action(delegate()
+            else
             {
-                timeLeft.Text = "Kalan Zaman: ";
-                timeLeft.Text += time+ " Dakika";
-            }));
-            m_Timer.Start();
+                timeLeft.Dispatcher.BeginInvoke(new Action(delegate()
+                {
+                    timeLeft.Text = "Kalan Zaman: ";
+                    timeLeft.Text += time + " Dakika";
+                }));
+                m_Timer.Start();
+            }
         }
     }
 }

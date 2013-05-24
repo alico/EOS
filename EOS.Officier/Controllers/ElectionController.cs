@@ -106,7 +106,7 @@ namespace EOS.Officier.Controllers
                 m_merkezDC.SubmitChanges();
                 var electionDetials = m_merkezDC.VElectionDetails.Where(x => x.ElectionId == Model.ElectionId).ToList();
                 ViewData["ElectionDetails"] = electionDetials;
-                ViewData["MinDate"] = electionDetials[5].FinishDate.Value.ToString("yyyy-MM-dd HH:mm");
+                ViewData["MinDate"] = electionDetials[4].FinishDate.Value.ToString("yyyy-MM-dd HH:mm");
 
             }
             return View(Model);
