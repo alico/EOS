@@ -86,15 +86,21 @@
                                     readonly="readonly" />
                                 <label for="Candidate.PartyId">
                                     Parti:</label>
+                                       <% if (ViewData["PartyId"] != null)
+                                          { %> 
+                                       <input  id="slcParty" type="hidden" name="Candidate.PartyId" value="<%=ViewData["PartyId"]%>"/> 
+                                       <p><%= ViewData["PartyName"]%></p>
+                                       <%}
+                                          else
+                                          {%>
                                 <select id="slcParty" name="Candidate.PartyId" <% if(ViewData["PartyId"] != null) {%>
                                     readonly="readonly" <%}%>>
                                     <% foreach (var party in ViewData["Parties"] as List<EOS.Officier.Models.Party>)
                                        {%>
-                                    <option <% if (ViewData["PartyId"] == party.PartyId.ToString())
-                                                        { %> selected <% }%> value="<%=party.PartyId %>">
-                                        <%=party.PartyName%></option>
+                                    <option value="<%=party.PartyId %>"> <%=party.PartyName%></option>
                                     <%} %>
                                 </select>
+                                    <%} %>
                                 <label for="Candidate.RegionId">
                                     Seçim Bölgesi:</label>
                                 <select readonly="readonly" id="slcRegion" name="Candidate.RegionId">

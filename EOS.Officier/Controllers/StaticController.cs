@@ -24,10 +24,13 @@ namespace EOS.Officier.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Index(int TrackingCode,int ElectionId)
         {
-            if (m_merkezDc.Votes.Any(x => x.ElectionId == ElectionId && x.TrackingCode == TrackingCode))
+            if (TrackingCode != 0 && ElectionId != 0)
             {
-                var vote = m_merkezDc.Votes.First(x => x.ElectionId == ElectionId && x.TrackingCode == TrackingCode);
-                return View(vote);
+                if (m_merkezDc.Votes.Any(x => x.ElectionId == ElectionId && x.TrackingCode == TrackingCode))
+                {
+                    var vote = m_merkezDc.Votes.First(x => x.ElectionId == ElectionId && x.TrackingCode == TrackingCode);
+                    return View(vote);
+                }
             }
             return View();
         }
