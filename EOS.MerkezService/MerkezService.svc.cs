@@ -83,10 +83,9 @@ namespace EOS.MerkezService
             try
             {
                 m_voteDc = new VoteDataContext(Globals.ConnectionString);
-                var elc = m_voteDc.VElectionDetails.ToList();
-                if (m_voteDc.VElectionDetails.Any(e => e.StatusName == "Seçim Başlatıldı" && e.StartDate.Value.Date == DateTime.Now.Date && e.FinishDate.Value >= DateTime.Now))
+                if (m_voteDc.VElectionDetails.Any(e => e.StatusId ==5 && e.StartDate.Value.Date == DateTime.Now.Date && e.FinishDate.Value >= DateTime.Now))
                 {
-                    election = m_voteDc.VElectionDetails.First(e => e.StatusName == "Seçim Başlatıldı" && e.StartDate.Value.Date == DateTime.Now.Date && e.FinishDate.Value >= DateTime.Now);
+                    election = m_voteDc.VElectionDetails.First(e => e.StatusId == 5 && e.StartDate.Value.Date == DateTime.Now.Date && e.FinishDate.Value >= DateTime.Now);
                 }
 
             }

@@ -80,6 +80,7 @@
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\ElectionController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\StaticController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\CandidateModel.cs" />
@@ -277,6 +278,7 @@
     <Content Include="Content\Template\terms-and-conditions.html" />
     <Content Include="Content\Template\user.html" />
     <Content Include="Content\Template\users.html" />
+    <Content Include="Images\turk-bayragi.jpg" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery.bootstrap-duallistbox.js" />
     <None Include="Service References\NufusMudurluguService\configuration91.svcinfo" />
@@ -352,6 +354,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\Static\Index.aspx" />
     <Content Include="Views\Statistics\Unrecordingvoters.aspx" />
     <Content Include="Views\Statistics\Unvotingvoters.aspx" />
     <Content Include="Views\Statistics\Votedetails.aspx" />
@@ -396,7 +399,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>

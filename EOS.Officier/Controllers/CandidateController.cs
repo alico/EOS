@@ -81,6 +81,10 @@ namespace EOS.Officier.Controllers
         {
             try
             {
+                if (TempData["Message"] != null)
+                {
+                    ViewData["Message"] = TempData["Message"];
+                }
                 var model = m_internetDc.VCandidates.ToList();
                 var images = new List<string>();
                 foreach (var candidate in model)
@@ -97,17 +101,25 @@ namespace EOS.Officier.Controllers
         }
 
         [Authorize(Roles = "YSKMemuru,YetkiliYSKMemuru")]
-        public ActionResult Edit(string CandidateId)
+        public ActionResult Edit(string CandidateId,int ElectionId)
         {
-            
-            ViewData["Parties"] = Globals.GetParties();
-            ViewData["Regions"] = Globals.GetRegions();
-            var model = new CandidateModel();
-            model.Candidate = m_internetDc.Candidates.First(x => x.CandidateId == CandidateId);
-            ViewData["Election"] = Globals.GetElections("NewElections").First(x => x.ElectionId == model.Candidate.ElectionId).Name;
-            model.Citizen = m_internetDc.Voters.First(x => x.IdentityNo == CandidateId);
+            try
+            {
+                ViewData["Parties"] = Globals.GetParties();
+                ViewData["Regions"] = Globals.GetRegions();
+                var model = new CandidateModel();
+                model.Candidate = m_internetDc.Candidates.First(x => x.CandidateId == CandidateId && x.ElectionId == ElectionId);
+                ViewData["Election"] = Globals.GetElections("NewElections").First(x => x.ElectionId == model.Candidate.ElectionId).Name;
+                model.Citizen = m_internetDc.Voters.First(x => x.IdentityNo == CandidateId);
 
-            return View(model);
+                return View(model);
+            }
+            catch (Exception)
+            {
+                TempData["Message"] = "Bu aday aktif seçimde yer aldığı için düzenlenemez!";
+                return RedirectToAction("List","Candidate");
+            }
+           
         }
 
         [Authorize(Roles = "YSKMemuru,YetkiliYSKMemuru")]
@@ -168,21 +180,24 @@ namespace EOS.Officier.Controllers
         }
 
         [Authorize(Roles = "YSKMemuru,YetkiliYSKMemuru")]
-        public ActionResult Delete(string CandidateId)
+        public ActionResult Delete(string CandidateId, int ElectionId)
         {
             try
             {
-                if (m_internetDc.Candidates.Any(x => x.CandidateId == CandidateId))
+                
+                if (m_internetDc.Candidates.Any(x => x.CandidateId == CandidateId && x.ElectionId == ElectionId))
                 {
+                    ViewData["Election"] = Globals.GetElections("NewElections").First(x => x.ElectionId == ElectionId).Name;
+
                     var candidate = m_internetDc.Candidates.First(x => x.CandidateId == CandidateId);
                     m_internetDc.Candidates.DeleteOnSubmit(candidate);
                     m_internetDc.SubmitChanges();
-                    ViewData["Message"] = "Aday Başarı ile Silinmiştir!";
+                    TempData["Message"] = "Aday Başarı ile Silinmiştir!";
                 }
             }
             catch (Exception)
             {
-                ViewData["Message"] = "Aday Silme İşlemi Başarısız!";
+                TempData["Message"] = "Bu aday aktif seçimde yer aldığı için silinemez!";
             }
 
             return RedirectToAction("List");

@@ -11,9 +11,18 @@
          <a href="#page-stats" class="block-heading" data-toggle="collapse">Seçim Sonucu</a>
             <div id="page-stats" class="block-body collapse in">
             <a id="print" class="btn">Raporla</a>
-            <div id="chartContainer1"></div>
+            <div class="row">
+            <div class="span7" id="chartContainer1"></div>
+            <div class="span3">
+                <div class="well">
+                Genel seçim sonuclarını göstermektedir.
+                </div>
             </div>
-            <div class="block">
+            
+            </div>
+            <div class="row">
+                <div class="span7" id="chartContainer2"></div>                  
+            <div class="span3">
                 <form id="datas"></form>
                 <form method="post" id="cityForm">
                     <div class="stat-widget">
@@ -31,8 +40,14 @@
                         </div>
                     </div>
                 </form>
-                <div id="chartContainer2"></div>            
+                <div class="well">
+                Seçilmiş olan il bazındaki seçim sonuclarını göstermektedir.
+                </div>
             </div>
+            </div>
+            <div class="row">            
+             <div class="span7" id="chartContainer3"></div>
+            <div class="span3">
             
                 <form method="post" id="regionForm">
                     <div class="stat-widget">
@@ -44,8 +59,14 @@
                         </div>
                     </div>
                 </form>
-             <div id="chartContainer3"></div>
-             
+                <div class="well">
+                Seçilmiş olan bölge bazındaki seçim sonuclarını göstermektedir.
+                </div>
+            </div>
+            </div>
+            <div class="row">            
+             <div class="span7" id="chartContainer4"></div>
+            <div class="span3">
                 <form method="post" id="districtForm">
                     <div class="stat-widget">
                         <div class="stat-button">
@@ -56,8 +77,11 @@
                         </div>
                     </div>
                 </form>
-             <div id="chartContainer4"></div>
-             </div>
+                <div class="well">
+                Seçilmiş olan ilçe bazındaki seçim sonuclarını göstermektedir.
+                </div>
+            </div>
+            </div>
              
     <script type="text/javascript">
         $(function () {
@@ -80,7 +104,7 @@
                     dataSource: {
                         "chart": {
                             "caption": "Seçim Sonucu",
-                            "subcaption": " Falanca Seçim",
+                            "subcaption": $("#slcCity option:selected").text(),
                             "xAxisName": "Partiler",
                             "yAxisName": "Oy",
                             "numberSuffix": " oy",
@@ -117,7 +141,7 @@
                     dataSource: {
                         "chart": {
                             "caption": "Seçim Sonucu",
-                            "subcaption": " Falanca Seçim",
+                            "subcaption": $("#slcRegion option:selected").text(),
                             "xAxisName": "Partiler",
                             "yAxisName": "Oy",
                             "numberSuffix": " oy",
@@ -150,7 +174,7 @@
                     dataSource: {
                         "chart": {
                             "caption": "Seçim Sonucu",
-                            "subcaption": " Falanca Seçim",
+                            "subcaption": $("#slcDistrict option:selected").text(),
                             "xAxisName": "Partiler",
                             "yAxisName": "Oy",
                             "numberSuffix": " oy",
@@ -183,7 +207,7 @@
                     dataSource: {
                         "chart": {
                             "caption": "Seçim Sonucu",
-                            "subcaption": " Falanca Seçim",
+                            "subcaption": '<%= ViewData["ElectionName"] %>',
                             "xAxisName": "Partiler",
                             "yAxisName": "Oy",
                             "numberSuffix": " oy",

@@ -30,7 +30,7 @@ namespace VotingMachine
             m_timer = new Timer();
             m_timer.Enabled = true;
             m_timer.Interval = 1000;
-            timeCounter = 30;
+            timeCounter = 10;
             m_timer.Elapsed += new ElapsedEventHandler(timerElapsed);
             prepareForm();
         }

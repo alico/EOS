@@ -26,16 +26,16 @@
         <elementListCompartment Id="a8b9de12-f115-4bb3-962f-f02d1ff2314b" absoluteBounds="5.765, 5.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="75b343ee-a89a-4ae2-a64f-cd6accdee751" absoluteBounds="2.625, 5.75, 2, 2.5401025390625">
-      <DataClassMoniker Name="/EOSInternetDataContext/VCandidate" />
-      <nestedChildShapes>
-        <elementListCompartment Id="57f7cd9a-66a3-4ea4-a8e3-87ed847be53c" absoluteBounds="2.64, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="97df9b56-123e-4884-9a15-4c4f84d34001" absoluteBounds="0.5, 3.875, 2, 1.7708968098958331">
       <DataClassMoniker Name="/EOSInternetDataContext/Candidate" />
       <nestedChildShapes>
         <elementListCompartment Id="ba66a691-55c1-4e1b-85ef-4bf61e862576" absoluteBounds="0.515, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3a270da-a1f4-4c91-bab1-e94af3bac005" absoluteBounds="3, 5.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/EOSInternetDataContext/VCandidate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="92c4c205-3bea-4311-85b9-051def132910" absoluteBounds="3.015, 5.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

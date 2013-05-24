@@ -38,6 +38,7 @@ namespace EOS.MerkezService
     partial void DeleteVote(Vote instance);
     #endregion
 		
+		
 		public VoteDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
@@ -62,14 +63,6 @@ namespace EOS.MerkezService
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<VElectionDetail> VElectionDetails
-		{
-			get
-			{
-				return this.GetTable<VElectionDetail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<District> Districts
 		{
 			get
@@ -85,157 +78,12 @@ namespace EOS.MerkezService
 				return this.GetTable<Vote>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VElectionDetails")]
-	public partial class VElectionDetail
-	{
 		
-		private System.Nullable<int> _ElectionId;
-		
-		private string _Name;
-		
-		private System.Nullable<System.DateTime> _StartDate;
-		
-		private System.Nullable<System.DateTime> _FinishDate;
-		
-		private System.Nullable<System.DateTime> _ActionDate;
-		
-		private string _StatusName;
-		
-		private string _StartedBy;
-		
-		private string _FinishedBy;
-		
-		public VElectionDetail()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ElectionId", DbType="Int")]
-		public System.Nullable<int> ElectionId
+		public System.Data.Linq.Table<VElectionDetail> VElectionDetails
 		{
 			get
 			{
-				return this._ElectionId;
-			}
-			set
-			{
-				if ((this._ElectionId != value))
-				{
-					this._ElectionId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(255)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this._StartDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FinishDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FinishDate
-		{
-			get
-			{
-				return this._FinishDate;
-			}
-			set
-			{
-				if ((this._FinishDate != value))
-				{
-					this._FinishDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ActionDate
-		{
-			get
-			{
-				return this._ActionDate;
-			}
-			set
-			{
-				if ((this._ActionDate != value))
-				{
-					this._ActionDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="VarChar(255)")]
-		public string StatusName
-		{
-			get
-			{
-				return this._StatusName;
-			}
-			set
-			{
-				if ((this._StatusName != value))
-				{
-					this._StatusName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartedBy", DbType="VarChar(11)")]
-		public string StartedBy
-		{
-			get
-			{
-				return this._StartedBy;
-			}
-			set
-			{
-				if ((this._StartedBy != value))
-				{
-					this._StartedBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FinishedBy", DbType="VarChar(11)")]
-		public string FinishedBy
-		{
-			get
-			{
-				return this._FinishedBy;
-			}
-			set
-			{
-				if ((this._FinishedBy != value))
-				{
-					this._FinishedBy = value;
-				}
+				return this.GetTable<VElectionDetail>();
 			}
 		}
 	}
@@ -693,6 +541,177 @@ namespace EOS.MerkezService
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VElectionDetails")]
+	public partial class VElectionDetail
+	{
+		
+		private System.Nullable<int> _ElectionId;
+		
+		private string _Name;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<System.DateTime> _FinishDate;
+		
+		private System.Nullable<System.DateTime> _ActionDate;
+		
+		private string _StatusName;
+		
+		private System.Nullable<int> _StatusId;
+		
+		private string _StartedBy;
+		
+		private string _FinishedBy;
+		
+		public VElectionDetail()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ElectionId", DbType="Int")]
+		public System.Nullable<int> ElectionId
+		{
+			get
+			{
+				return this._ElectionId;
+			}
+			set
+			{
+				if ((this._ElectionId != value))
+				{
+					this._ElectionId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(255)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this._StartDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FinishDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FinishDate
+		{
+			get
+			{
+				return this._FinishDate;
+			}
+			set
+			{
+				if ((this._FinishDate != value))
+				{
+					this._FinishDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ActionDate
+		{
+			get
+			{
+				return this._ActionDate;
+			}
+			set
+			{
+				if ((this._ActionDate != value))
+				{
+					this._ActionDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusName", DbType="VarChar(255)")]
+		public string StatusName
+		{
+			get
+			{
+				return this._StatusName;
+			}
+			set
+			{
+				if ((this._StatusName != value))
+				{
+					this._StatusName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusId", DbType="Int")]
+		public System.Nullable<int> StatusId
+		{
+			get
+			{
+				return this._StatusId;
+			}
+			set
+			{
+				if ((this._StatusId != value))
+				{
+					this._StatusId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartedBy", DbType="VarChar(201)")]
+		public string StartedBy
+		{
+			get
+			{
+				return this._StartedBy;
+			}
+			set
+			{
+				if ((this._StartedBy != value))
+				{
+					this._StartedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FinishedBy", DbType="VarChar(201)")]
+		public string FinishedBy
+		{
+			get
+			{
+				return this._FinishedBy;
+			}
+			set
+			{
+				if ((this._FinishedBy != value))
+				{
+					this._FinishedBy = value;
+				}
 			}
 		}
 	}

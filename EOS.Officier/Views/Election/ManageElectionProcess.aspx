@@ -29,8 +29,8 @@
                             <input class="btn btn-primary btn-large" type="submit" value="Seçim Süreci Ekle" />
                                     <div class="control-group">
             <label class="control-label">Başlangıç Tarihi</label>
-            <div id="start_date" class="controls input-append date datetime" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="dtp_input1">
-                <input name="StartDate"size="16" type="text" value="" readonly>
+            <div id="start_date" class="controls input-append date datetime" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+                <input class="required"  name="StartDate"size="16" type="text" value="" readonly>
                 <span class="add-on"><i class="icon-remove"></i></span>
                 <span class="add-on"><i class="icon-th"></i></span>
             </div>
@@ -39,8 +39,8 @@
         
         <div class="control-group">
             <label class="control-label">Bitiş Tarihi</label>
-            <div id="end_date" class="controls input-append date datetime" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="dtp_input2">
-                <input name="FinishDate"size="16" type="text" value="" readonly/>
+            <div id="end_date" class="controls input-append date datetime" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input2">
+                <input class="required"  name="FinishDate"size="16" type="text" value="" readonly/>
                 <span class="add-on"><i class="icon-remove"></i></span>
                 <span class="add-on"><i class="icon-th"></i></span>
             </div>
@@ -63,9 +63,7 @@
                             <div class="stat-button">
                                 <table class="table">
                                     <tr>
-                                        <th>
-                                            Aksiyon Tarihi
-                                        </th>
+                                       
                                         <th>
                                             Durum
                                         </th>
@@ -78,31 +76,25 @@
                                         <th>
                                             Başlatan
                                         </th>
-                                        <th>
-                                            Bitiren
-                                        </th>
+                                       
                                     </tr>
                                     <% foreach (var detail in ViewData["ElectionDetails"] as List<EOS.Officier.Models.VElectionDetail>)
                                        { %>
                                     <tr>
-                                        <td>
-                                            <%= detail.ActionDate.Value.ToShortDateString()%>
-                                        </td>
+                                      
                                         <td>
                                             <%=detail.StatusName%>
                                         </td>
                                         <td>
-                                            <%=detail.StartDate.Value.ToShortDateString()%>
+                                            <%=detail.StartDate.Value.ToString("dd/MM/yyyy hh:mm")%>
                                         </td>
                                         <td>
-                                            <%=detail.FinishDate.Value.ToShortDateString() %>
+                                            <%=detail.FinishDate.Value.ToString("dd/MM/yyyy hh:mm")%>
                                         </td>
                                         <td>
                                             <%=detail.StartedBy%>
                                         </td>
-                                        <td>
-                                            <%=detail.FinishedBy%>
-                                        </td>
+                                    
                                         <td>
                                             <%--<%: Html.ActionLink("Düzenle", "Edit", new { CandidateId = item.CandidateId })%> --%>
                                         </td>
@@ -248,7 +240,7 @@
                     todayHighlight: 1,
                     startView: 2,
                     forceParse: 0,
-                    startDate: today
+                    startDate: '<%=ViewData["MinDate"] %>'
                 });
                 $('#start_date').on('change', function () {
                     $('#end_date').datetimepicker({

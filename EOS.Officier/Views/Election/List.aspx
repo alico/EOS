@@ -1,62 +1,65 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/Template/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<EOS.Officier.Models.VElectionDetail>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    List
+    Seçim Listesi
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>List</h2>
-
-<% if (Model != null)
-   { %>
-
-<table id="dt_basic" class="table table-condensed">
-<thead>
-    <tr>
-        <th>
-            Seçim Adı / Tipi
-        </th>
-        <th>
-            Başlangıç Tarihi
-        </th>
-        <th>
-            Bitiş Tarihi
-        </th>
-        <th>
-            Durumu
-        </th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-<% foreach (var item in Model)
-   { %>
-    <tr>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.Name) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.StartDate) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.FinishDate) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.StatusName) %>
-        </td>
-        </td>
-        <td>
-            <%: Html.ActionLink("Süreçler", "ManageElectionProcess", new {ElectionId=item.ElectionId}) %> |
-            <%: Html.ActionLink("Sonuçlar", "Show", new { ElectionId = item.ElectionId })%> 
-        </td>
-    </tr>
-<% } %>
-</tbody>
-</table>
-<% } %>
-
-<script type="text/javascript">
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">Seçim Listeleme</a>
+    <div id="page-stats" class="block-body collapse in">
+        <div class="row-fluid">
+            <div class="span12">
+                <% if (Model != null)
+                   { %>
+                <table id="dt_basic" class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>
+                                Seçim Adı / Tipi
+                            </th>
+                            <th>
+                                Başlangıç Tarihi
+                            </th>
+                            <th>
+                                Bitiş Tarihi
+                            </th>
+                            <th>
+                                Durumu
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% foreach (var item in Model)
+                           { %>
+                        <tr>
+                            <td>
+                                <%: Html.DisplayFor(modelItem => item.Name) %>
+                            </td>
+                            <td>
+                                <%: Html.DisplayFor(modelItem => item.StartDate) %>
+                            </td>
+                            <td>
+                                <%: Html.DisplayFor(modelItem => item.FinishDate) %>
+                            </td>
+                            <td>
+                                <%: Html.DisplayFor(modelItem => item.StatusName) %>
+                            </td>
+                            </td>
+                            <td>
+                                <%: Html.ActionLink("Süreçler", "ManageElectionProcess", new {ElectionId=item.ElectionId}) %>
+                                |
+                                <%: Html.ActionLink("Sonuçlar", "Show", new { ElectionId = item.ElectionId })%>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
 $(document).ready(function() {
 //* datatables
 beoro_datatables.basic();
@@ -76,5 +79,5 @@ $('#dt_basic').dataTable({
 }
 }
 };
-</script>
+    </script>
 </asp:Content>

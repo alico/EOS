@@ -45,9 +45,10 @@ namespace EOS.Officier.Models
                 var elections = m_merkezDC.Elections.ToList();
                 if(electionStatus=="NewElections")
                 {
+                  
                     foreach (var election in elections)
 	                {
-                        if (m_merkezDC.ElectionDetails.Any(x => x.ElectionId == election.ElectionId && !(x.ElectionStatus.StatusId > 5)))
+                        if (  m_merkezDC.ElectionDetails.Any(x=>x.StatusId==1 && x.StartDate<=DateTime.Now && x.FinishDate>=DateTime.Now && x.ElectionId==election.ElectionId))
                         {
                             if (!newElections.Any(x => x.ElectionId == election.ElectionId))
                             {
@@ -60,7 +61,7 @@ namespace EOS.Officier.Models
                 {
                     foreach (var election in elections)
                     {
-                        if (m_merkezDC.ElectionDetails.Any(x => x.ElectionId == election.ElectionId && (x.ElectionStatus.StatusId == 5)))
+                        if (m_merkezDC.ElectionDetails.Any(x => x.StatusId == 5 && x.StartDate <= DateTime.Now && x.FinishDate >= DateTime.Now && x.ElectionId == election.ElectionId))
                         {
                             if (!newElections.Any(x => x.ElectionId == election.ElectionId) && !m_merkezDC.ElectionDetails.Any(x => x.ElectionId == election.ElectionId && (x.ElectionStatus.StatusId == 6)))
                             {
@@ -73,7 +74,7 @@ namespace EOS.Officier.Models
                 { 
                      foreach (var election in elections)
                     {
-                        if (m_merkezDC.ElectionDetails.Any(x => x.ElectionId == election.ElectionId && (x.ElectionStatus.StatusId == 6)))
+                        if (m_merkezDC.ElectionDetails.Any(x => x.StatusId == 6 && x.StartDate <= DateTime.Now && x.FinishDate >= DateTime.Now && x.ElectionId == election.ElectionId))
                         {
                             if (!newElections.Any(x => x.ElectionId == election.ElectionId))
                             {

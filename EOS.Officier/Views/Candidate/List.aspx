@@ -74,8 +74,8 @@
                                 <%= item.OrderNo%>
                             </td>
                             <td>
-                                <%: Html.ActionLink("Düzenle", "Edit", new { CandidateId = item.CandidateId })%>
-                                <a class="candidateDelete" href="#candidateDeleteModal" data-toggle="modal" data-id="<%=item.CandidateId%>">
+                                <%: Html.ActionLink("Düzenle", "Edit", new { CandidateId = item.CandidateId,ElectionId=item.ElectionId })%>
+                                <a class="candidateDelete" href="#candidateDeleteModal" data-toggle="modal" data-id="<%=item.CandidateId%>" data-election="<%=item.ElectionId %>">
                                     |Sil</a>
                             </td>
                         </tr>
@@ -101,8 +101,10 @@
         $('.candidateDelete').click(function () {
             console.log();
             var delete_id = $(this).data('id');
-            url = "/candidate/delete?CandidateId=" + delete_id;
-            var data = 'Silmek istediğinize emin misiniz? <br> <a id="confirmedDelete" data-id="' + delete_id + '" class="btn btn-primary" href="' + url + '">Evet</a>';
+            var delete_ElectionId = $(this).data('election');
+            url = "/candidate/delete?CandidateId=" + delete_id + "&ElectionId=" + delete_ElectionId;
+            console.log(delete_ElectionId);
+            var data = 'Silmek istediğinize emin misiniz? <br> <a id="confirmedDelete" data-id="' + delete_id + '"data-electionId="' + delete_ElectionId +'" class="btn btn-primary" href="' + url + '">Evet</a>';
             $('.modal-body').html(data);
         });
     </script>

@@ -22,6 +22,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="InternetService.wsdl" MetadataType="Wsdl" ID="cc3c4faa-9d28-44ff-96a7-6ee07e2b7b2c" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService" />
+    <MetadataFile FileName="InternetService3.xsd" MetadataType="Schema" ID="ae755723-62f8-498b-9a10-ae8813c8c88d" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd3" />
     <MetadataFile FileName="InternetService.xsd" MetadataType="Schema" ID="5b1b3307-5c21-4290-a319-8f94adbd36f9" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd2" />
     <MetadataFile FileName="InternetService1.xsd" MetadataType="Schema" ID="f2a92209-e895-4746-a46d-67cf27bcb19a" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd1" />
     <MetadataFile FileName="InternetService2.xsd" MetadataType="Schema" ID="2cd6145c-8475-4a52-ba6b-1ee4e966b549" SourceId="1" SourceUrl="http://192.168.1.222:5778/InternetService?xsd=xsd0" />

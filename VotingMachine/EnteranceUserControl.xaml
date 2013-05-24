@@ -27,7 +27,7 @@
     <StackPanel Margin="10,10,10,10" Name="mainStackPanel">
         <TextBlock FontSize="15" HorizontalAlignment="Right" Text="[Açılış Sayfası]"></TextBlock>
 
-        <Border Style="{DynamicResource ResourceKey=MenuBorder}">
+        <Border Style="{DynamicResource ResourceKey=MenuBorder}" Height="365">
             <StackPanel Margin="20 20 20 20">
                 <TextBlock FontSize="36" Text="Elektronik Seçim Sistemi"></TextBlock>
                 <TextBlock></TextBlock>
@@ -36,7 +36,7 @@
                 <TextBlock FontSize="24" Text="Bitiş Tarihi: " Name="endDate"></TextBlock>
                 <TextBlock FontSize="24" Text="Kalan Zaman: " Name="left"></TextBlock>
                 <TextBlock></TextBlock>
-                <TextBlock FontSize="24" Text="Seçimin Başaltılması Bekleniyor" Name="description"></TextBlock>
+                <TextBlock FontSize="24" Text="Servisle Bağlantı Kuruluyor..." Name="description"></TextBlock>
                 <TextBlock></TextBlock>
                 <TextBox Text="" Visibility="Hidden"  Height="28" Name="trigger" TextChanged="trigger_TextChanged" />
             </StackPanel>

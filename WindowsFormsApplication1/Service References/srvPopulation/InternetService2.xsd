@@ -24,6 +24,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="biometricId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionId" type="xs:int" />
         <xs:element minOccurs="0" name="timeStampt" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="hashingData" nillable="true" type="xs:string" />
       </xs:sequence>

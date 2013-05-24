@@ -9,7 +9,6 @@
         <a href="#page-stats" class="block-heading" data-toggle="collapse">Oy Kullanmayan Seçmenlerin Listesi</a>
         <div id="page-stats" class="block-body collapse in">
         
-            <a id="print" class="btn">Raporla</a>
 <%if (ViewData["Elections"] != null)
   {%>
   <form method="post">
@@ -17,7 +16,7 @@
                                     <div class="stat-button">
                                         <label for="ElectionId">
                                             Seçim Adı:</label>
-                                        <select id="slcElection" name="ElectionId">
+                                        <select class="required" id="slcElection" name="ElectionId">
                                             <% foreach (var election in ViewData["Elections"] as List<EOS.Officier.Models.Election>)
                                                {%>
                                             <option value="<%=election.ElectionId %>">
@@ -32,6 +31,8 @@
 <%}
   else
   {%>
+  
+            <a id="print" class="btn">Raporla</a>
   <div class="printable">
 <table id="dt_basic" class="imagetable table table-striped table-condensed">
 <thead>

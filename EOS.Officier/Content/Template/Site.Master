@@ -94,7 +94,7 @@
                     </ul>
                 </li>
             </ul>
-            <a class="brand" href="/voter/create"><span class="first">ESS</span> <span class="second">
+            <a class="brand" href="/home/index"><span class="first">ESS</span> <span class="second">
                 Yönetim Paneli</span></a>
         </div>
     </div>
@@ -153,8 +153,6 @@
             <li><a href="/election/list">Seçim Listesi</a></li>
         </ul>
         <%} %>
-        <a href="help.html" class="nav-header"><i class="icon-question-sign"></i>Yardım Merkezi</a>
-        <a href="faq.html" class="nav-header"><i class="icon-comment"></i>Soru Bankası</a>
     </div>
     <div id="main">
         <div class="content">

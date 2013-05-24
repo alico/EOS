@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Vote">
   <DataContextMoniker Name="/VoteDataContext" />
   <nestedChildShapes>
-    <classShape Id="705e38de-829f-495b-9494-66ac946dfece" absoluteBounds="0.5, 0.5, 2, 2.3478011067708335">
-      <DataClassMoniker Name="/VoteDataContext/VElectionDetail" />
-      <nestedChildShapes>
-        <elementListCompartment Id="610e294d-4139-4a0e-8a9d-d229bf2db792" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="096d5429-17db-4a94-9917-7164be316a2f" absoluteBounds="0.875, 3.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/VoteDataContext/District" />
       <nestedChildShapes>
@@ -20,12 +14,18 @@
         <elementListCompartment Id="244adca9-4c6e-4918-8881-7abf815d3667" absoluteBounds="3.6399999999999997, 1.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.875 : 4.53929768880208); (4.625 : 4.53929768880208); (4.625 : 3.4151025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.875 : 4.53929768880208); (4.625 : 4.53929768880208); (4.625 : 3.4151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VoteDataContext/District/District_Vote" />
       <nodes>
         <classShapeMoniker Id="096d5429-17db-4a94-9917-7164be316a2f" />
         <classShapeMoniker Id="e15a9505-f451-4472-a25e-81f5fbfd6121" />
       </nodes>
     </associationConnector>
+    <classShape Id="d92de8b2-fe25-4e9c-9917-6440966ee3c0" absoluteBounds="0.875, 0.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/VoteDataContext/VElectionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9de94c31-9dcb-4d25-9f54-5242f3a803e1" absoluteBounds="0.89, 1.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

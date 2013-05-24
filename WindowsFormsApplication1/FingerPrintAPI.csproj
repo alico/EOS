@@ -100,6 +100,9 @@
     <None Include="Service References\srvPopulation\InternetService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\srvPopulation\InternetService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\srvPopulation\WindowsFormsApplication1.srvPopulation.CandidateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

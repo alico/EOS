@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="dbnBR6+f5Ko5aF51XiCrG7Su7RM=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="qUX0D72bELV4TSHQZQeUwDbuCOU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="GetVoterEp">
       <properties>

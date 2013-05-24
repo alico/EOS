@@ -664,6 +664,9 @@ namespace WindowsFormsApplication1.srvPopulation {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsFormsApplication1.srvPopulation.Binary ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageUrlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -688,6 +691,19 @@ namespace WindowsFormsApplication1.srvPopulation {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsFormsApplication1.srvPopulation.Binary Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
             }
         }
         
@@ -779,20 +795,65 @@ namespace WindowsFormsApplication1.srvPopulation {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Binary", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq")]
+    [System.SerializableAttribute()]
+    public partial class Binary : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] BytesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Bytes {
+            get {
+                return this.BytesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BytesField, value) != true)) {
+                    this.BytesField = value;
+                    this.RaisePropertyChanged("Bytes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="srvPopulation.IInternetService")]
     public interface IInternetService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.2.222:5778/InternetService/SetVote", ReplyAction="http://tempuri.org/IInternetService/SetVoteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.222:5778/InternetService/SetVote", ReplyAction="http://tempuri.org/IInternetService/SetVoteResponse")]
         string SetVote(string identityNo, int electionId, int RegionId, string District, string timeStampt, string hashingData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.2.222:5778/InternetService/GetVoter", ReplyAction="http://tempuri.org/IInternetService/GetVoterResponse")]
-        WindowsFormsApplication1.srvPopulation.VoterResponse GetVoter(string biometricId, string timeStampt, string hashingData);
+        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.222:5778/InternetService/GetVoter", ReplyAction="http://tempuri.org/IInternetService/GetVoterResponse")]
+        WindowsFormsApplication1.srvPopulation.VoterResponse GetVoter(string biometricId, int electionId, string timeStampt, string hashingData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.2.222:5778/InternetService/GetCandidates", ReplyAction="http://tempuri.org/IInternetService/GetCandidatesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.222:5778/InternetService/GetCandidates", ReplyAction="http://tempuri.org/IInternetService/GetCandidatesResponse")]
         WindowsFormsApplication1.srvPopulation.CandidateResponse GetCandidates(int electionId, string identityNo, string timeStampt, string hashingData);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.2.222:5778/InternetService/SetFingerPrint", ReplyAction="http://tempuri.org/IInternetService/SetFingerPrintResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://192.168.1.222:5778/InternetService/SetFingerPrint", ReplyAction="http://tempuri.org/IInternetService/SetFingerPrintResponse")]
         string SetFingerPrint(string IdentityNo, string BiometricId, string Password);
     }
     
@@ -827,8 +888,8 @@ namespace WindowsFormsApplication1.srvPopulation {
             return base.Channel.SetVote(identityNo, electionId, RegionId, District, timeStampt, hashingData);
         }
         
-        public WindowsFormsApplication1.srvPopulation.VoterResponse GetVoter(string biometricId, string timeStampt, string hashingData) {
-            return base.Channel.GetVoter(biometricId, timeStampt, hashingData);
+        public WindowsFormsApplication1.srvPopulation.VoterResponse GetVoter(string biometricId, int electionId, string timeStampt, string hashingData) {
+            return base.Channel.GetVoter(biometricId, electionId, timeStampt, hashingData);
         }
         
         public WindowsFormsApplication1.srvPopulation.CandidateResponse GetCandidates(int electionId, string identityNo, string timeStampt, string hashingData) {

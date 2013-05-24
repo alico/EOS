@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ESSMerkez" Class="VoteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=Alico-PC;Initial Catalog=ESSMerkez;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ESSMerkezConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.VElectionDetails" Member="VElectionDetails">
-    <Type Name="VElectionDetail">
-      <Column Name="ElectionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FinishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ActionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="StatusName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="StartedBy" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="FinishedBy" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=Alico-PC;Initial Catalog=ESSMerkez;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ESSMerkezConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Districts" Member="Districts">
     <Type Name="District">
       <Column Name="DistrictId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -33,6 +21,19 @@
       <Column Name="VoteStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TrackingCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="District_Vote" Member="District" ThisKey="DistrictId" OtherKey="DistrictId" Type="District" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VElectionDetails" Member="VElectionDetails">
+    <Type Name="VElectionDetail">
+      <Column Name="ElectionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FinishDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="StatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartedBy" Type="System.String" DbType="VarChar(201)" CanBeNull="true" />
+      <Column Name="FinishedBy" Type="System.String" DbType="VarChar(201)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

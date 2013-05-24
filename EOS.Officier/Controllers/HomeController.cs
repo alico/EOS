@@ -11,6 +11,14 @@ namespace EOS.Officier.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            if (User.IsInRole("YSKMemuru") || User.IsInRole("YetkiliYSKMemuru"))
+            {
+                return RedirectToAction("List", "Voter");
+            }
+            else if (User.IsInRole("SistemYoneticisi"))
+            {
+                return RedirectToAction("List", "Election");
+            }
             return View();
         }
 

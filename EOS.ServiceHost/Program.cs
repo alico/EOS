@@ -20,6 +20,7 @@ namespace EOS.ServiceHost
 
             System.ServiceModel.ServiceHost NufusMudurluguServiceHost = new System.ServiceModel.ServiceHost(typeof(TCNufusMudurlugu.srvPopulation));
             NufusMudurluguServiceHost.Open();
+           
             Console.ReadLine();
         }
     }

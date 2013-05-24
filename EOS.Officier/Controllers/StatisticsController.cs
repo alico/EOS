@@ -78,15 +78,22 @@ namespace EOS.Officier.Controllers
         public ActionResult Votedetails(VoteDetail model)
         {
             var IdentityNo = Request.Form["IdentityNo"];
-            List<VoteModel> votes = new List<VoteModel>();
-            if (m_internetDc.VoteDetails.Any(h => h.IdentityNo == IdentityNo.ToString()))
+            List<VoteModel> votes = null;
+            try
             {
-                foreach (var vote in m_internetDc.VoteDetails.Where(h => h.IdentityNo == IdentityNo.ToString()).ToList())
+                if (m_internetDc.VoteDetails.Any(h => h.IdentityNo == IdentityNo.ToString()))
                 {
-                    votes.Add(new VoteModel(vote));
+                    votes = new List<VoteModel>();
+                    foreach (var vote in m_internetDc.VoteDetails.Where(h => h.IdentityNo == IdentityNo.ToString()).ToList())
+                    {
+                        votes.Add(new VoteModel(vote));
+                    }
                 }
+                ViewData["Votes"] = votes;
             }
-            ViewData["Votes"] = votes;
+            catch(Exception exp)
+            {}
+            ViewData["Message"] = "Seçmene ait oy kaydı bulunmuyor...";
             return View();
         }
 

@@ -14,7 +14,7 @@
                                     <div class="stat-button">
                                         <label for="IdentityNo">
                                             Seçmen TC Kimlik No:</label>
-                                        <input type="text" name="IdentityNo"/>
+                                        <input class="required" type="text" name="IdentityNo"/>
                                         <input class="btn btn-primary btn-large" type="submit" value="Oy Kullanım Detaylarını Getir" />
                                         </div>
                                         </div>

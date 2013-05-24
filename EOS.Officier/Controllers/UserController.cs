@@ -31,6 +31,8 @@ namespace EOS.Officier.Controllers
         {
             try
             {
+                ViewData["UserTypes"] = Globals.GetUserTypes();
+                ViewData["Departments"] = Globals.GetDepartments();
                 if (m_merkezDC.Users.Any(x => x.IdentityNo == userModel.IdentityNo))
                 {
                     TempData["Message"] = " Bu Aday Zaten Sistemde Kayıtlıdır, Güncellemek için Aşağıdaki Ekranı Kullanın!";
@@ -46,6 +48,7 @@ namespace EOS.Officier.Controllers
                     user.UserName = userModel.IdentityNo;
                     user.UserPassword = userModel.IdentityNo;
                     user.UserTypeId = userModel.UserTypeId;
+                    
 
                     user.DepartmentId = userModel.DepartmentId;
                     user.CreatedAt = DateTime.Now;
@@ -78,32 +81,43 @@ namespace EOS.Officier.Controllers
                         m_merkezDC.Users.InsertOnSubmit(user);
                         m_merkezDC.SubmitChanges();
                         ViewData["Message"] = " Kullanıcı başarı ile kaydedildi!";
+                        userModel = m_merkezDC.VUsers.First(x=>x.IdentityNo==user.IdentityNo);
+                        return  RedirectToAction("List");
                     }
                     else
                     {
                         ViewData["Message"] = " Bir Hata Oluştu Lütfen Tekrar Deneyiniz!";
+                        return View(userModel);
                     }
                 }
                 else
                 {
                     if (m_internetDc.Citizens.Any(x => x.IdentityNo == userModel.IdentityNo))
                     {
-                        ViewData["UserTypes"] = Globals.GetUserTypes();
-                        ViewData["Departments"] = Globals.GetDepartments();
-
-
                         if (m_merkezDC.Users.Any(x => x.IdentityNo == userModel.IdentityNo))
                         {
                             userModel = m_merkezDC.VUsers.First(x => x.IdentityNo == userModel.IdentityNo);
                             ViewData["Message"] = " Bu Kullanıcının Kaydı Bulunmaktadır!";
                             return View(userModel);
                         }
-                        else if (m_merkezDC.VUsers.Any(x => x.IdentityNo == userModel.IdentityNo))
+                        else
                         {
-                            userModel =
-                                m_merkezDC.VUsers.First(x => x.IdentityNo == userModel.IdentityNo);
+                            var userData = m_internetDc.Voters.First(x => x.IdentityNo == userModel.IdentityNo);
+
+                            userModel.UserName = userData.IdentityNo;
+                            userModel.UserPassword = userData.IdentityNo;
+                            userModel.Name = userData.Name;
+                            userModel.Surname = userData.Surname;
+                            userModel.BirthPlace = userData.BirthPlace;
+                            userModel.BirthDate = userData.BirthDate;
+                            userModel.MotherName = userData.MotherName;
+                            userModel.FatherName = userData.FatherName;
+                            userModel.City = userData.City;
+                            userModel.District = userData.District;
+                            userModel.Address = userData.Address;
+                            userModel.Telephone = userData.Telephone;
+                            return View(userModel);
                         }
-                        return View(userModel);
                     }
                     else
                     {
@@ -177,7 +191,7 @@ namespace EOS.Officier.Controllers
                         //var aspUser = m_merkezDC.mem.First(x => x.UserName == userModel.IdentityNo);
                         
                         MembershipUser currentUser = Membership.GetUser(user.IdentityNo, false /* userIsOnline */);
-                        changePasswordSucceeded = currentUser.ChangePassword(user.UserPassword, userModel.IdentityNo);
+                        changePasswordSucceeded = currentUser.ChangePassword(user.UserPassword, user.IdentityNo);
                         user.UserPassword = user.IdentityNo;
                     }
                     if (Request.Form["UserStatus"] != "True")

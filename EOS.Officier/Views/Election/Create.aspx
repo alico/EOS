@@ -36,9 +36,9 @@
                     <div class="control-group">
                         <label class="control-label">
                             Başlangıç Tarihi</label>
-                        <div id="start_date" class="controls input-append date datetime" data-date="1979-09-16T05:25:07Z"
-                            data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="dtp_input1">
-                            <input name="StartDate" size="16" type="text" value="" readonly>
+                        <div id="start_date" class="controls input-append date form_datetime" data-date="1979-09-16T05:25:07Z"
+                            data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1" >
+                            <input readonly class="required" name="StartDate" size="16" type="text" >
                             <span class="add-on"><i class="icon-remove"></i></span><span class="add-on"><i class="icon-th">
                             </i></span>
                         </div>
@@ -48,8 +48,8 @@
                     <label class="control-label">
                         Bitiş Tarihi</label>
                     <div id="end_date" class="controls input-append date datetime" data-date="1979-09-16T05:25:07Z"
-                        data-date-format="yyyy-mm-dd hh:mm:ss" data-link-field="dtp_input2">
-                        <input name="FinishDate" size="16" type="text" value="" readonly />
+                        data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input2">
+                        <input class="required" name="FinishDate" size="16" type="text" value="" readonly />
                         <span class="add-on"><i class="icon-remove"></i></span><span class="add-on"><i class="icon-th">
                         </i></span>
                     </div>
@@ -58,120 +58,9 @@
             </div>
         </div>
     </div>
-    </form> </div>
-    <div class="row-fluid">
-        <div class="block span6">
-            <a href="#tablewidget" class="block-heading" data-toggle="collapse">Yeni Kayıt Olan
-                Seçmenler<span class="label label-warning"></span></a>
-            <div id="tablewidget" class="block-body collapse in">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                First Name
-                            </th>
-                            <th>
-                                Last Name
-                            </th>
-                            <th>
-                                Username
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Mark
-                            </td>
-                            <td>
-                                Tompson
-                            </td>
-                            <td>
-                                the_mark7
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Ashley
-                            </td>
-                            <td>
-                                Jacobs
-                            </td>
-                            <td>
-                                ash11927
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Audrey
-                            </td>
-                            <td>
-                                Ann
-                            </td>
-                            <td>
-                                audann84
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                John
-                            </td>
-                            <td>
-                                Robinson
-                            </td>
-                            <td>
-                                jr5527
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Aaron
-                            </td>
-                            <td>
-                                Butler
-                            </td>
-                            <td>
-                                aaron_butler
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Chris
-                            </td>
-                            <td>
-                                Albert
-                            </td>
-                            <td>
-                                cab79
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>
-                    <a href="users.html">More...</a></p>
-            </div>
-        </div>
-        <div class="block span6">
-            <a href="#widget1container" class="block-heading" data-toggle="collapse">Yardım
-            </a>
-            <div id="widget1container" class="block-body collapse in">
-                <h2>
-                    Seçmen Nasıl Eklenir?</h2>
-                <p>
-                    This template was developed with <a href="http://middlemanapp.com/" target="_blank">
-                        Middleman</a> and includes .erb layouts and views.</p>
-                <p>
-                    All of the views you see here (sign in, sign up, users, etc) are already split up
-                    so you don't have to waste your time doing it yourself!</p>
-                <p>
-                    The layout.erb file includes the header, footer, and side navigation and all of
-                    the views are broken out into their own files.</p>
-                <p>
-                    If you aren't using Ruby, there is also a set of plain HTML files for each page,
-                    just like you would expect.</p>
-            </div>
-        </div>
+    </form> 
     </div>
+    
     <script type="text/javascript">
         $(function () {
             var today = new Date();

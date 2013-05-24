@@ -46,6 +46,7 @@ namespace EOS.Officier.Models
     partial void UpdateCandidate(Candidate instance);
     partial void DeleteCandidate(Candidate instance);
     #endregion
+
 		
 		public EOSInternetDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -103,19 +104,19 @@ namespace EOS.Officier.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<VCandidate> VCandidates
-		{
-			get
-			{
-				return this.GetTable<VCandidate>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Candidate> Candidates
 		{
 			get
 			{
 				return this.GetTable<Candidate>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VCandidate> VCandidates
+		{
+			get
+			{
+				return this.GetTable<VCandidate>();
 			}
 		}
 	}
@@ -1280,177 +1281,6 @@ namespace EOS.Officier.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VCandidates")]
-	public partial class VCandidate
-	{
-		
-		private string _CandidateId;
-		
-		private string _Name;
-		
-		private string _Surname;
-		
-		private string _ElectionName;
-		
-		private string _PartyAcr;
-		
-		private string _ImageUrl;
-		
-		private System.Data.Linq.Binary _Image;
-		
-		private string _Region;
-		
-		private System.Nullable<int> _OrderNo;
-		
-		public VCandidate()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CandidateId", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
-		public string CandidateId
-		{
-			get
-			{
-				return this._CandidateId;
-			}
-			set
-			{
-				if ((this._CandidateId != value))
-				{
-					this._CandidateId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(100)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(100)")]
-		public string Surname
-		{
-			get
-			{
-				return this._Surname;
-			}
-			set
-			{
-				if ((this._Surname != value))
-				{
-					this._Surname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ElectionName", DbType="VarChar(255)")]
-		public string ElectionName
-		{
-			get
-			{
-				return this._ElectionName;
-			}
-			set
-			{
-				if ((this._ElectionName != value))
-				{
-					this._ElectionName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartyAcr", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string PartyAcr
-		{
-			get
-			{
-				return this._PartyAcr;
-			}
-			set
-			{
-				if ((this._PartyAcr != value))
-				{
-					this._PartyAcr = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="VarChar(255)")]
-		public string ImageUrl
-		{
-			get
-			{
-				return this._ImageUrl;
-			}
-			set
-			{
-				if ((this._ImageUrl != value))
-				{
-					this._ImageUrl = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this._Image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="VarChar(55)")]
-		public string Region
-		{
-			get
-			{
-				return this._Region;
-			}
-			set
-			{
-				if ((this._Region != value))
-				{
-					this._Region = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNo", DbType="Int")]
-		public System.Nullable<int> OrderNo
-		{
-			get
-			{
-				return this._OrderNo;
-			}
-			set
-			{
-				if ((this._OrderNo != value))
-				{
-					this._OrderNo = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Candidates")]
 	public partial class Candidate : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1605,6 +1435,195 @@ namespace EOS.Officier.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VCandidates")]
+	public partial class VCandidate
+	{
+		
+		private string _CandidateId;
+		
+		private string _Name;
+		
+		private string _Surname;
+		
+		private string _ElectionName;
+		
+		private int _ElectionId;
+		
+		private string _PartyAcr;
+		
+		private string _ImageUrl;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private string _Region;
+		
+		private System.Nullable<int> _OrderNo;
+		
+		public VCandidate()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CandidateId", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
+		public string CandidateId
+		{
+			get
+			{
+				return this._CandidateId;
+			}
+			set
+			{
+				if ((this._CandidateId != value))
+				{
+					this._CandidateId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(100)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(100)")]
+		public string Surname
+		{
+			get
+			{
+				return this._Surname;
+			}
+			set
+			{
+				if ((this._Surname != value))
+				{
+					this._Surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ElectionName", DbType="VarChar(255)")]
+		public string ElectionName
+		{
+			get
+			{
+				return this._ElectionName;
+			}
+			set
+			{
+				if ((this._ElectionName != value))
+				{
+					this._ElectionName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ElectionId", DbType="Int NOT NULL")]
+		public int ElectionId
+		{
+			get
+			{
+				return this._ElectionId;
+			}
+			set
+			{
+				if ((this._ElectionId != value))
+				{
+					this._ElectionId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartyAcr", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PartyAcr
+		{
+			get
+			{
+				return this._PartyAcr;
+			}
+			set
+			{
+				if ((this._PartyAcr != value))
+				{
+					this._PartyAcr = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="VarChar(255)")]
+		public string ImageUrl
+		{
+			get
+			{
+				return this._ImageUrl;
+			}
+			set
+			{
+				if ((this._ImageUrl != value))
+				{
+					this._ImageUrl = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="VarChar(55)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this._Region = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderNo", DbType="Int")]
+		public System.Nullable<int> OrderNo
+		{
+			get
+			{
+				return this._OrderNo;
+			}
+			set
+			{
+				if ((this._OrderNo != value))
+				{
+					this._OrderNo = value;
+				}
 			}
 		}
 	}
