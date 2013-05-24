@@ -56,6 +56,7 @@ namespace EOS.Officier.Controllers
                             var party =
                                 m_internetDc.Parties.First(x => x.Manager == candidateModel.Citizen.IdentityNo);
                             ViewData["PartyId"] = party.PartyId;
+                            ViewData["PartyName"] = party.PartyName;
                         }
 
                         var citizen = m_internetDc.Voters.First(x => x.IdentityNo == candidateModel.Citizen.IdentityNo);
@@ -109,16 +110,21 @@ namespace EOS.Officier.Controllers
                 ViewData["Regions"] = Globals.GetRegions();
                 var model = new CandidateModel();
                 model.Candidate = m_internetDc.Candidates.First(x => x.CandidateId == CandidateId && x.ElectionId == ElectionId);
-                ViewData["Election"] = Globals.GetElections("NewElections").First(x => x.ElectionId == model.Candidate.ElectionId).Name;
-                model.Citizen = m_internetDc.Voters.First(x => x.IdentityNo == CandidateId);
-
-                return View(model);
+                var elections = Globals.GetElections("NewElections");
+                if (elections != null && elections.Count > 0)
+                {
+                    ViewData["Election"] = elections.First(x => x.ElectionId == model.Candidate.ElectionId).Name;
+                    model.Citizen = m_internetDc.Voters.First(x => x.IdentityNo == CandidateId);
+                    return View(model);
+                }
+                TempData["Message"] = "Geçmiş seçime ait aday bilgilerini değiştiremezsiniz!";
             }
             catch (Exception)
             {
                 TempData["Message"] = "Bu aday aktif seçimde yer aldığı için düzenlenemez!";
                 return RedirectToAction("List","Candidate");
             }
+             return RedirectToAction("List","Candidate");
            
         }
 
@@ -160,6 +166,7 @@ namespace EOS.Officier.Controllers
                             var party =
                                 m_internetDc.Parties.First(x => x.Manager == candidateModel.Citizen.IdentityNo);
                             ViewData["PartyId"] = party.PartyId;
+                            ViewData["PartyName"] = party.PartyName;
                         }
                         var citizen = m_internetDc.Voters.First(x => x.IdentityNo == candidateModel.Citizen.IdentityNo);
                         candidateModel.Citizen = citizen;

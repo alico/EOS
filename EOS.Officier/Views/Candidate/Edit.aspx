@@ -4,7 +4,7 @@
     Aday Düzenleme
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <a href="#page-stats" class="block-heading" data-toggle="collapse">Seçmen Bilgisi Güncelle</a>
+    <a href="#page-stats" class="block-heading" data-toggle="collapse">Aday Bilgisi Güncelle</a>
     <div id="page-stats" class="block-body collapse in">
         <form method="POST">
         <td>
@@ -14,7 +14,7 @@
                         <label for="IdentityNo">
                             TC Kimlik NO:</label>
                         <input readonly="readonly" type="text" name="Citizen.IdentityNo" value="<%= Model == null ? "" : Model.Citizen.IdentityNo %>" />
-                        <input class="btn btn-primary btn-large" type="submit" value="Seçmen Bilgilerini Güncelle" />
+                        <input class="btn btn-primary btn-large" type="submit" value="Aday Bilgilerini Güncelle" />
                     </div>
                 </div>
                 <% if (Model != null)
@@ -108,7 +108,13 @@
                 $("#slcOrder").append(result);
             });
         }
-        $(setOrders);
+        function setOrdersEdit() {
+            $.get("/candidate/orders?electionId=" + $("#slcElection").val() + "&partyId=" + $("#slcParty").val() + "&regionId=" + $("#slcRegion").val(), function (result) {
+                $("#slcOrder option").remove();
+                $("#slcOrder").append('<option selected value="<%=Model.Candidate.OrderNo %>"><%=Model.Candidate.OrderNo %>. Sıra</option>' + result);
+            });
+        }
+        $(setOrdersEdit);
         $("#slcParty").on('change', setOrders);
         $("#slcElection").on('change', setOrders);
         $("#slcRegion").on('change', setOrders);
